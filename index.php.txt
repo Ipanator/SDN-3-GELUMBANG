@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SDN 3 Gelumbang</title>
+  <title>SDN 3 GELUMBANG</title>
   <style>
     * {
       margin: 0;
@@ -100,11 +100,19 @@
 
     .btn-container {
       display: flex;
-      gap: 15px;
+      flex-wrap: nowrap;
+      gap: 10px;
       position: fixed;
-      bottom: 70px;
-      right: 20px;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 1001;
+      max-width: 90vw;
+      overflow-x: auto;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      white-space: nowrap;
     }
 
     .btn-gabung, .btn-info {
@@ -116,11 +124,19 @@
       padding: 12px 20px;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.1s;
     }
 
     .btn-gabung:hover, .btn-info:hover {
-      background-color: rgba(255, 255, 255, 1);
+      animation: shake 0.3s ease;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-3px); }
+      50% { transform: translateX(3px); }
+      75% { transform: translateX(-3px); }
+      100% { transform: translateX(0); }
     }
 
     footer {
@@ -138,59 +154,6 @@
       font-size: 14px;
     }
 
-    @media (max-width: 768px) {
-      .marquee-text {
-        font-size: 14px;
-      }
-
-      .welcome-text strong {
-        font-size: 14px;
-      }
-
-      .welcome-text small {
-        font-size: 11px;
-      }
-
-      .navbar .logo-left,
-      .navbar .logo-right {
-        width: 45px;
-        height: 45px;
-      }
-
-      .btn-gabung, .btn-info {
-        font-size: 14px;
-        padding: 10px 18px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .btn-gabung, .btn-info {
-        font-size: 12px;
-        padding: 8px 14px;
-        bottom: 15px;
-        right: 15px;
-      }
-
-      .welcome-text strong {
-        font-size: 13px;
-      }
-
-      .welcome-text small {
-        font-size: 10px;
-      }
-
-      .marquee-text {
-        font-size: 13px;
-      }
-
-      .navbar .logo-left,
-      .navbar .logo-right {
-        width: 40px;
-        height: 40px;
-      }
-    }
-
-    /* Splash Screen */
     #splashScreen {
       position: fixed;
       top: 0;
@@ -219,110 +182,125 @@
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
+
+    #muteBtn {
+      position: fixed;
+      bottom: 120px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      font-size: 24px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.85);
+      color: black;
+      cursor: pointer;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .25s;
+    }
+    #muteBtn:hover {
+      transform: rotate(12deg) scale(1.15);
+      box-shadow: 0 0 12px rgba(255,255,255,0.6);
+    }
+    #muteBtn:active {
+      transform: scale(.85) rotate(-12deg);
+      background-color: yellow;
+    }
   </style>
 </head>
 <body>
-  <!-- Splash Screen -->
+
   <div id="splashScreen">
-    <h1>Selamat Datang di<br>Website SD Negeri 3 Gelumbang</h1>
-    <button id="mulaiBtn">Mulai</button>
+    <h1><b></b>SELAMAT DATANG DI<br>SDN 3 GELUMBANG</h1>
+    <button id="mulaiBtn">Masuk</button>
   </div>
 
   <div class="overlay-black"></div>
 
   <div class="navbar">
-    <img src="logo2.png" alt="Logo SDN 3 Gelumbang" class="logo-right">
+    <img src="logo2.png" class="logo-right">
+
     <div class="marquee-container">
       <div class="welcome-text">
-        <strong><b>Selamat Datang di SD Negeri 3 Gelumbang</b></strong><br>
+        <strong><b>SELAMAT DATANG DI SD NEGERI 3 GELUMBANG</b></strong><br>
         <small>Satu Hati, Satu Tujuan, Terus Maju Bersama</small>
       </div>
-      <div class="marquee-text" id="marqueeTime">
-        Memuat waktu...
-      </div>
+      <div class="marquee-text" id="marqueeTime">Memuat waktu...</div>
     </div>
-    <img src="logo1.png" alt="Logo SDN 3 Gelumbang" class="logo-left">
+
+    <img src="logo1.png" class="logo-left">
   </div>
 
-  <div class="content-container">
-    <!-- Konten bisa ditambahkan di sini -->
-  </div>
-
-  <!-- Tombol Gabung dan Info -->
   <div class="btn-container">
-    <a href="http://sdn3gelumbangkita-27819.portmap.io:27819/" class="btn-gabung" target="_blank">
-      Login E-Raport
-    </a>
-    <a href="http://sdn3gelumbangkita-27819.portmap.io:27819/info" class="btn-info" target="_blank">
-      Info Sekolah
-    </a>
+    <a href="http://Ipansebau-30144.portmap.io:30144" class="btn-gabung" target="_blank">E-Rapor 2025</a>
+    <a href="http://sdn3gelumbangkita-58406.portmap.io:58406" class="btn-info" target="_blank">E-Rapor 2021</a>
+    <a href="https://spmbpaudsdmuaraenim.id/" class="btn-info" target="_blank">SPMB</a>
+    <a href="https://dapo.dikdasmen.go.id/sekolah/FBA964F3EBEF1E4D616D" class="btn-info" target="_blank">Info Sekolah</a>
+    <a href="https://wa.me/6285369662075?text=Halo%20SDN%203%20Gelumbang" class="btn-info" target="_blank">Hubungi Kami</a>
   </div>
 
-  <!-- Audio -->
-  <audio id="audioPlayer" autoplay loop>
+  <audio id="audioPlayer" loop>
     <source src="audio1.mp3" type="audio/mpeg">
-    Browser Anda tidak mendukung elemen audio.
   </audio>
 
+  <button id="muteBtn">🔊</button>
+
   <footer>
-    <p>&copy; By Ipan 2025 SD Negeri 3 Gelumbang Kita. All Rights Reserved.</p>
+    <p>&copy; By Ipan 2025 SD Negeri 3 Gelumbang. Hak Cipta Dilindungi Undang-Undang No. 28 Tahun 2014.</p>
   </footer>
 
-  <script>
-    // Tombol mulai untuk masuk ke halaman utama
-    document.getElementById("mulaiBtn").addEventListener("click", function () {
-      document.getElementById("splashScreen").style.display = "none";
-      const audio = document.getElementById("audioPlayer");
-      audio.play().catch(() => {});
-    });
+<script>
+  const audio = document.getElementById("audioPlayer");
+  const muteBtn = document.getElementById("muteBtn");
 
-    // Ganti background setiap 9 detik
-    const totalImages = 9;
-    let current = 1;
-    function changeBackground() {
-      document.body.style.backgroundImage = `url('img${current}.jpeg')`;
-      current = current < totalImages ? current + 1 : 1;
-    }
-    changeBackground();
-    setInterval(changeBackground, 9000);
+  document.getElementById("mulaiBtn").addEventListener("click", function () {
+    document.getElementById("splashScreen").style.display = "none";
+    audio.muted = false;
+    audio.play();
+  });
 
-    // Update waktu berjalan
-    function updateMarquee() {
-      const now = new Date();
-      const hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-      const bulan = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
-      const hariIni = hari[now.getDay()];
-      const tanggal = now.getDate();
-      const bulanIni = bulan[now.getMonth()];
-      const tahun = now.getFullYear();
-      let jam = now.getHours();
-      let menit = now.getMinutes();
-      let detik = now.getSeconds();
-      jam = jam < 10 ? '0' + jam : jam;
-      menit = menit < 10 ? '0' + menit : menit;
-      detik = detik < 10 ? '0' + detik : detik;
-      const teks = `📅 ${hariIni}, ${tanggal} ${bulanIni} ${tahun} 🕒 ${jam}:${menit}:${detik}`;
-      document.getElementById('marqueeTime').textContent = teks;
-    }
-    updateMarquee();
-    setInterval(updateMarquee, 1000);
+  muteBtn.addEventListener("click", () => {
+    audio.muted = !audio.muted;
+    muteBtn.textContent = audio.muted ? "🔇" : "🔊";
+  });
 
-    // Pause audio saat tab tidak aktif
-    document.addEventListener("visibilitychange", function () {
-      const audio = document.getElementById("audioPlayer");
-      if (document.hidden) {
-        audio.pause();
-      } else {
-        audio.play();
-      }
-    });
+  const totalImages = 9;
+  let current = 1;
+  function changeBackground() {
+    document.body.style.backgroundImage = `url('img${current}.jpeg')`;
+    current = current < totalImages ? current + 1 : 1;
+  }
+  changeBackground();
+  setInterval(changeBackground, 5000);
 
-    // Autoplay saat user klik (untuk bypass limitasi browser)
-    document.addEventListener("click", function playOnce() {
-      const audio = document.getElementById("audioPlayer");
-      audio.play().catch(() => {});
-      document.removeEventListener("click", playOnce);
-    });
-  </script>
+  const motivasiList = [
+    "Satu Hati, Satu Tujuan, Terus Maju Bersama",
+    "Seberat apapun masalahmu jangan ditimbang, gak bakal laku.",
+    "Jika mimpimu belum terwujud, tak ada salahnya untuk tidur kembali.",
+    "Dunia ini tidak ada yang benar-benar bisa dimiliki. Bahkan udara yang kau hirup harus kau hembuskan kembali.",
+    "Seburuk apapun halaman sebelumnya, langkahmu tetap untuk masa depan.",
+    "jadilah lebih baik, bukan kembali seperti dulu.",
+    "Bukan soal siapa yang datang paling awal, tetapi siapa yang bertahan hingga akhir."
+  ];
+  
+  let motivasiIndex = 0;
+  setInterval(() => {
+    document.querySelector(".welcome-text small").textContent = motivasiList[motivasiIndex];
+    motivasiIndex = (motivasiIndex + 1) % motivasiList.length;
+  }, 6000);
+
+  setInterval(() => {
+    const now = new Date();
+    const hari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+    const bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+    document.getElementById('marqueeTime').textContent =
+      `📅 ${hari[now.getDay()]}, ${now.getDate()} ${bulan[now.getMonth()]} ${now.getFullYear()} 🕒 ${now.toLocaleTimeString()}`;
+  }, 1000);
+</script>
+
 </body>
-</html>
+  </html>
